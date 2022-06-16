@@ -1,16 +1,25 @@
 package alerts;
 
 /*
-This class will control which alert will be called next.
+This class will control which alert will be called next. It will call an alert every hour.
 
-The user must configure how often they want a generic break alert, water alert,
-and get up and move alert by providing how many minutes in between those alerts.
+FOR TESTING PURPOSES IT IS CONFIGURED TO CALL AN ALERT EVERY 30 SECONDS.
 
-Any other alert will be generated at random times.
  */
 
-import java.util.Queue;
+public class AlertController implements Runnable {
+    int counter = 0;
 
-public class AlertController {
-
+    @Override
+    public void run() {
+        while(true) {
+            try {
+                System.out.println("Call Alert " + counter);
+                counter++;
+                //Thread.sleep(1000*60*60);
+                Thread.sleep(1000*30);
+            } catch (InterruptedException ie) {
+            }
+        }
+    }
 }
