@@ -11,7 +11,7 @@ public class fetchJoke {
                 = "http://localhost:8080/joke";
         ResponseEntity<String> response
                 = restTemplate.getForEntity(dadJokesURL , String.class);
-        return response.toString();
+        return response.getBody().toString();
     }
     
 }

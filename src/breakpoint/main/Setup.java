@@ -66,6 +66,7 @@ public class Setup{
         description.setAlignmentY(Component.CENTER_ALIGNMENT);
         description.setAlignmentX(Component.CENTER_ALIGNMENT);
         description.setEditable(false);
+        description.setBackground(null);
         gbcHeader.gridy = 1;
         introInfoPanel.add(description, gbcHeader);
 
@@ -117,7 +118,18 @@ public class Setup{
 
         setUpMenu();
 
-        
+        Panel middleGridBagLayout = new Panel();
+        middleGridBagLayout.setLayout(new GridBagLayout());
+        GridBagConstraints gbc = new GridBagConstraints();
+        gbc.fill = GridBagConstraints.HORIZONTAL;
+        gbc.weightx = 1;
+        gbc.gridx = 0;
+        gbc.gridy = 0;
+
+
+        Panel checkBoxGrid = new Panel();
+        //checkBoxGrid.setLayout(new BoxLayout());
+
         frame.setVisible(true);
     }
 
