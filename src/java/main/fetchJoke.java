@@ -1,4 +1,4 @@
-public class fetchJoke {
+/*public class fetchJoke {
     public static String getJoke(){
         RestTemplate restTemplate = new RestTemplate();
         String dadJokesURL
@@ -7,4 +7,4 @@ public class fetchJoke {
                 = restTemplate.getForEntity(dadJokesURL , String.class);
     }
     
-}
+}*/
