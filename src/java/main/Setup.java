@@ -1,24 +1,17 @@
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.*;
+import java.awt.event.*;
+import java.awt.event.ActionListener;
 
-public class Setup {
+public class Setup{
     public JFrame frame;
     public void startScreen(){
         frame = new JFrame("Breakpoint");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(700,500);
         //frame.setLayout(new FlowLayout());
-        //Creating the MenuBar and adding components
-        JMenuBar mb = new JMenuBar();
-        JMenu m1 = new JMenu("FILE");
-        JMenu m2 = new JMenu("Help");
-        mb.add(m1);
-        mb.add(m2);
-        JMenuItem m11 = new JMenuItem("Open");
-        JMenuItem m22 = new JMenuItem("Save as");
-        m1.add(m11);
-        m1.add(m22);
+        setUpMenu();
 
         //Creating the panel at bottom and adding components
         JPanel username = new JPanel(); // the panel is not visible in output
@@ -102,12 +95,42 @@ public class Setup {
         gbc.gridy = 3;
         middleGridBagLayout.add(buttonsPanel, gbc);
 
+        gbc.gridy = 4;
+        JButton next = new JButton("Next");
+        middleGridBagLayout.add(next, gbc);
+
+        next.addActionListener(e -> optionsScreen());
 
         //Adding Components to the frame.
         //frame.getContentPane().add(BorderLayout.SOUTH, panel);
-        frame.getContentPane().add(BorderLayout.NORTH, mb);
+        //frame.getContentPane().add(BorderLayout.NORTH, mb);
         frame.getContentPane().add(BorderLayout.CENTER, middleGridBagLayout);
         frame.setVisible(true);
 
     }
+
+    public void optionsScreen(){
+        frame.getContentPane().removeAll();
+        frame.repaint();
+
+        setUpMenu();
+
+        
+        frame.setVisible(true);
+    }
+
+    public void setUpMenu(){
+        //Creating the MenuBar and adding components
+        JMenuBar mb = new JMenuBar();
+        JMenu m1 = new JMenu("FILE");
+        JMenu m2 = new JMenu("Help");
+        mb.add(m1);
+        mb.add(m2);
+        JMenuItem m11 = new JMenuItem("Open");
+        JMenuItem m22 = new JMenuItem("Save as");
+        m1.add(m11);
+        m1.add(m22);
+        frame.getContentPane().add(BorderLayout.NORTH, mb);
+    }
+
 }
