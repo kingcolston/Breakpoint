@@ -1,6 +1,9 @@
+import alerts.Alert;
+
 import javax.swing.*;
 
 public class Breakpoint {
+
     public static void main(String[] args) {
         JFrame frame = new JFrame("My First GUI");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
