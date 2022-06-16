@@ -1,4 +1,4 @@
-package alerts;
+package breakpoint.main.alerts;
 
 import javax.swing.*;
 import java.awt.*;
