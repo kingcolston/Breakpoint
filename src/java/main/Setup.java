@@ -1,4 +1,5 @@
 import javax.swing.*;
+import javax.swing.border.EmptyBorder;
 import java.awt.*;
 
 public class Setup {
@@ -37,9 +38,9 @@ public class Setup {
 
         //Middle
 
-        Panel middleBox = new Panel();
+        Panel middleGridBagLayout = new Panel();
         Panel middleTextPanel = new Panel();
-        /*JLabel middle = new JLabel(
+        /*JLabel introInfoPanel = new JLabel(
                 "<html>" +
                         "<div style = \"background-color: #ADD8E6; margin: 20px; min-width: 100vh\">" +
                         "<h1 style = \"text-align: center\">" +
@@ -51,8 +52,8 @@ public class Setup {
                         "</div>" +
                         "</html>");*/
         //tf.setSize(5,5);
-        JPanel middle = new JPanel();
-        middle.setLayout(new GridBagLayout());
+        JPanel introInfoPanel = new JPanel();
+        introInfoPanel.setLayout(new GridBagLayout());
         GridBagConstraints gbcHeader = new GridBagConstraints();
         gbcHeader.fill = GridBagConstraints.HORIZONTAL;
         gbcHeader.weightx = 1;
@@ -62,7 +63,7 @@ public class Setup {
         JLabel header = new JLabel("Breakpoint");
         header.setFont(new Font("Times", Font.BOLD, 20));
         header.setHorizontalAlignment(SwingConstants.CENTER);
-        middle.add(header, gbcHeader);
+        introInfoPanel.add(header, gbcHeader);
 
         JTextArea description = new JTextArea("Welcome to our humble abode. I hope you have a good time here and gets lots of work done. Select preferences below.");
         description.setLineWrap(true);
@@ -71,35 +72,41 @@ public class Setup {
         description.setAlignmentX(Component.CENTER_ALIGNMENT);
         description.setEditable(false);
         gbcHeader.gridy = 1;
-        middle.add(description, gbcHeader);
+        introInfoPanel.add(description, gbcHeader);
 
-        middleBox.setLayout(new GridBagLayout());
+        middleGridBagLayout.setLayout(new GridBagLayout());
         GridBagConstraints gbc = new GridBagConstraints();
         gbc.fill = GridBagConstraints.HORIZONTAL;
         gbc.weightx = 1;
         gbc.gridx = 0;
         gbc.gridy = 0;
 
-        middleBox.add(middle, gbc);
+        middleGridBagLayout.add(new Panel(), gbc);
+        gbc.gridx = 2;
+        middleGridBagLayout.add(new Panel(), gbc);
+
+        gbc.gridx = 1;
+        middleGridBagLayout.add(introInfoPanel, gbc);
 
         gbc.weightx = 0.5;
         gbc.gridy = 1;
-        middleBox.add(username, gbc);
+        middleGridBagLayout.add(username, gbc);
 
         gbc.gridy = 2;
-        middleBox.add(password, gbc);
+        middleGridBagLayout.add(password, gbc);
 
         Panel buttonsPanel = new Panel();
         buttonsPanel.add(send);
         buttonsPanel.add(reset);
 
         gbc.gridy = 3;
-        middleBox.add(buttonsPanel, gbc);
+        middleGridBagLayout.add(buttonsPanel, gbc);
+
 
         //Adding Components to the frame.
         //frame.getContentPane().add(BorderLayout.SOUTH, panel);
         frame.getContentPane().add(BorderLayout.NORTH, mb);
-        frame.getContentPane().add(BorderLayout.CENTER, middleBox);
+        frame.getContentPane().add(BorderLayout.CENTER, middleGridBagLayout);
         frame.setVisible(true);
 
     }
