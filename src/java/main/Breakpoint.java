@@ -1,5 +1,6 @@
 import alerts.Alert;
 import alerts.AlertController;
+import alerts.AlertCreator;
 
 import javax.swing.*;
 
@@ -10,5 +11,9 @@ public class Breakpoint {
         setUp.startScreen();
         AlertController controller = new AlertController();
         controller.run();
+
+        AlertCreator alert_obj = new AlertCreator();
+        alert_obj.SetAlerts();
+        alert_obj.PrintAlerts();
     }
 }
