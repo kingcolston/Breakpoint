@@ -6,8 +6,8 @@ public class AlertCreator {
     public AlertCreator(){
         alerts = new ArrayList<>();
     }
-
     public ArrayList<Alert> alerts;
+    int index = 0;
 
     public void SetAlerts(){
         Alert alert1 = new Alert("Generic_Break", "It’s time to take a break!");
@@ -32,9 +32,14 @@ public class AlertCreator {
         alerts.add(alert10);
     }
 
-    public void PrintAlerts(){
+    public void PrintAllAlerts(){
         for(int i = 0; i < alerts.size(); i++){
             System.out.println(alerts.get(i).getAlertName() + ": " + alerts.get(i).getAlertMessage());
         }
+    }
+
+    public void printAlert() {
+        System.out.println(alerts.get(index).getAlertMessage());
+        index++;
     }
 }
