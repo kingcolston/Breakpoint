@@ -46,7 +46,7 @@ public class Setup {
                         "Breakpoint" +
                         "</h1>" +
                         "<p style = \"text-align: center; padding: 10px 30px; display: flex; flex-wrap: wrap\">" +
-                        "Welcome to our humble abode. I hope you have a good time here and gets lots of work done. Select preferences below." +
+                        "Welcome to our humble abode. I hope you have a good time here and get lots of work done. Select preferences below." +
                         "</p>" +
                         "</div>" +
                         "</html>");
