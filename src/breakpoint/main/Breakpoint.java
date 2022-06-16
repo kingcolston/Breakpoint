@@ -1,8 +1,6 @@
-import alerts.Alert;
-import alerts.AlertController;
-import alerts.AlertCreator;
+package breakpoint.main;
 
-import javax.swing.*;
+import breakpoint.main.alerts.AlertController;
 
 public class Breakpoint {
 
@@ -10,6 +8,7 @@ public class Breakpoint {
         Setup setUp = new Setup();
         setUp.startScreen();
         AlertController controller = new AlertController();
+        //System.out.println(fetchJoke.getJoke());
         controller.run();
     }
 }

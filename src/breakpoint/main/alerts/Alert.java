@@ -1,4 +1,4 @@
-package alerts;
+package breakpoint.main.alerts;
 
 public class Alert {
     public String alertName;

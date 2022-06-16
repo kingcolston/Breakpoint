@@ -1,4 +1,4 @@
-package alerts;
+package breakpoint.main.alerts;
 
 /*
 This class will control which alert will be called next. It will call an alert every hour.
