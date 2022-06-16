@@ -9,7 +9,6 @@ public class BreakpointApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(BreakpointApplication.class, args);
 	JokesRESTController jokes = new JokesRESTController();
-	jokes.getJokes();
 
 	}
 
