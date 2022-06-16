@@ -4,7 +4,7 @@ import java.awt.*;
 public class Setup {
     public JFrame frame;
     public void startScreen(){
-        frame = new JFrame("My First GUI");
+        frame = new JFrame("Breakpoint");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(500,500);
         //Creating the MenuBar and adding components
