@@ -6,7 +6,7 @@ public class Setup {
     public void startScreen(){
         frame = new JFrame("Breakpoint");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(500,500);
+        frame.setSize(700,500);
         //frame.setLayout(new FlowLayout());
         //Creating the MenuBar and adding components
         JMenuBar mb = new JMenuBar();
@@ -39,9 +39,9 @@ public class Setup {
 
         Panel middleBox = new Panel();
         Panel middleTextPanel = new Panel();
-        JLabel middle = new JLabel(
+        /*JLabel middle = new JLabel(
                 "<html>" +
-                        "<div style = \"background-color: #ADD8E6; margin: 20px\">" +
+                        "<div style = \"background-color: #ADD8E6; margin: 20px; min-width: 100vh\">" +
                         "<h1 style = \"text-align: center\">" +
                         "Breakpoint" +
                         "</h1>" +
@@ -49,8 +49,29 @@ public class Setup {
                         "Welcome to our humble abode. I hope you have a good time here and get lots of work done. Select preferences below." +
                         "</p>" +
                         "</div>" +
-                        "</html>");
+                        "</html>");*/
         //tf.setSize(5,5);
+        JPanel middle = new JPanel();
+        middle.setLayout(new GridBagLayout());
+        GridBagConstraints gbcHeader = new GridBagConstraints();
+        gbcHeader.fill = GridBagConstraints.HORIZONTAL;
+        gbcHeader.weightx = 1;
+        gbcHeader.gridx = 0;
+        gbcHeader.gridy = 0;
+
+        JLabel header = new JLabel("Breakpoint");
+        header.setFont(new Font("Times", Font.BOLD, 20));
+        header.setHorizontalAlignment(SwingConstants.CENTER);
+        middle.add(header, gbcHeader);
+
+        JTextArea description = new JTextArea("Welcome to our humble abode. I hope you have a good time here and gets lots of work done. Select preferences below.");
+        description.setLineWrap(true);
+        description.setWrapStyleWord(true);
+        description.setAlignmentY(Component.CENTER_ALIGNMENT);
+        description.setAlignmentX(Component.CENTER_ALIGNMENT);
+        description.setEditable(false);
+        gbcHeader.gridy = 1;
+        middle.add(description, gbcHeader);
 
         middleBox.setLayout(new GridBagLayout());
         GridBagConstraints gbc = new GridBagConstraints();
@@ -68,10 +89,12 @@ public class Setup {
         gbc.gridy = 2;
         middleBox.add(password, gbc);
 
+        Panel buttonsPanel = new Panel();
+        buttonsPanel.add(send);
+        buttonsPanel.add(reset);
+
         gbc.gridy = 3;
-        middleBox.add(send, gbc);
-        gbc.gridx = 1;
-        middleBox.add(reset, gbc);
+        middleBox.add(buttonsPanel, gbc);
 
         //Adding Components to the frame.
         //frame.getContentPane().add(BorderLayout.SOUTH, panel);
