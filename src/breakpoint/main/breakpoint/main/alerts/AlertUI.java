@@ -16,7 +16,10 @@ public class AlertUI {
         alertArea.setFont(new Font("Times", Font.BOLD, 20));
         alertArea.setLayout(new FlowLayout());
 
+        JButton jokeButton = new JButton("Get Joke!");
+
         frame.getContentPane().add(BorderLayout.CENTER, alertArea);
+        frame.getContentPane().add(BorderLayout.SOUTH, jokeButton);
 
         frame.setVisible(true);
     }

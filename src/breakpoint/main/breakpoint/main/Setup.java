@@ -17,7 +17,7 @@ public class Setup{
 
         //Creating the panel at bottom and adding components
         JPanel username = new JPanel(); // the panel is not visible in output
-        JLabel label = new JLabel("Username");
+        JLabel label = new JLabel("Set Time: ");
         JTextField tf = new JTextField(10); // accepts upto 10 characters
         username.add(label); // Components Added using Flow Layout
         username.add(tf);
@@ -56,18 +56,22 @@ public class Setup{
         gbcHeader.gridy = 0;
 
         JLabel header = new JLabel("Breakpoint");
-        header.setFont(new Font("Times", Font.BOLD, 20));
+        header.setFont(new Font("Times", Font.BOLD, 30));
         header.setHorizontalAlignment(SwingConstants.CENTER);
         introInfoPanel.add(header, gbcHeader);
 
-        JTextArea description = new JTextArea("Welcome to our humble abode. I hope you have a good time here and gets lots of work done. Select preferences below.");
+        gbcHeader.gridy = 1;
+        middleGridBagLayout.add(new Panel(), gbcHeader);
+
+        JTextArea description = new JTextArea("Welcome the Breakpoint. The best way to stay focused is to take breaks. Set time interval below.");
         description.setLineWrap(true);
         description.setWrapStyleWord(true);
         description.setAlignmentY(Component.CENTER_ALIGNMENT);
         description.setAlignmentX(Component.CENTER_ALIGNMENT);
         description.setEditable(false);
         description.setBackground(null);
-        gbcHeader.gridy = 1;
+        description.setFont(new Font("Times", Font.PLAIN, 15));
+        gbcHeader.gridy = 2;
         introInfoPanel.add(description, gbcHeader);
 
         middleGridBagLayout.setLayout(new GridBagLayout());
@@ -89,20 +93,20 @@ public class Setup{
         middleGridBagLayout.add(username, gbc);
 
         gbc.gridy = 2;
-        middleGridBagLayout.add(password, gbc);
+        //middleGridBagLayout.add(password, gbc);
 
         Panel buttonsPanel = new Panel();
         buttonsPanel.add(send);
         buttonsPanel.add(reset);
 
-        gbc.gridy = 3;
+        //gbc.gridy = 3;
         middleGridBagLayout.add(buttonsPanel, gbc);
 
-        gbc.gridy = 4;
+        /*gbc.gridy = 4;
         JButton next = new JButton("Next");
-        middleGridBagLayout.add(next, gbc);
+        middleGridBagLayout.add(next, gbc);*/
 
-        next.addActionListener(e -> optionsScreen());
+        //next.addActionListener(e -> optionsScreen());
 
         //Adding Components to the frame.
         //frame.getContentPane().add(BorderLayout.SOUTH, panel);

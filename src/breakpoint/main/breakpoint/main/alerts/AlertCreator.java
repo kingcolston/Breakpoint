@@ -10,8 +10,10 @@ public class AlertCreator {
     }
     public ArrayList<Alert> alerts;
     int index = 0;
+    AlertUI alertUI;
 
     public void SetAlerts(){
+        alertUI = new AlertUI();
         Alert alert1 = new Alert("Generic_Break", "It’s time to take a break!");
         alerts.add(alert1);
         Alert alert2 = new Alert("Water_Alert", "Hydrate or DIE-drate!");
@@ -42,6 +44,7 @@ public class AlertCreator {
 
     public void printAlert() {
         System.out.println(alerts.get(index).getAlertMessage());
+        alertUI.popUp(alerts.get(index).getAlertMessage());
         index++;
     }
 }
