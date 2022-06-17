@@ -1,5 +1,8 @@
 package breakpoint.main;
 
+import breakpoint.main.alerts.AlertController;
+import breakpoint.main.alerts.AlertUI;
+
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.*;
@@ -8,7 +11,7 @@ import java.awt.event.ActionListener;
 
 public class Setup{
     public JFrame frame;
-    public void startScreen(){
+    public void startScreen(AlertController alertController){
         frame = new JFrame("Breakpoint");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(700,500);
@@ -30,6 +33,7 @@ public class Setup{
 
         JButton reset = new JButton("Reset");
         JButton send = new JButton("Send");
+        send.addActionListener(e -> {AlertController.setTimer(Double.parseDouble(tf.getText()));});
 
         //Middle
 
@@ -63,7 +67,7 @@ public class Setup{
         gbcHeader.gridy = 1;
         middleGridBagLayout.add(new Panel(), gbcHeader);
 
-        JTextArea description = new JTextArea("Welcome the Breakpoint. The best way to stay focused is to take breaks. Set time interval below.");
+        JTextArea description = new JTextArea("Welcome the Breakpoint. The best way to stay focused is to take breaks. Set time interval (in number of minutes) below.");
         description.setLineWrap(true);
         description.setWrapStyleWord(true);
         description.setAlignmentY(Component.CENTER_ALIGNMENT);
